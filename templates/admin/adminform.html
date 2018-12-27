@@ -1,0 +1,58 @@
+{{define "head"}}<title>Create Admin</title>{{end}}
+{{define "body"}}
+<div id="wrapper">
+        {{template "nav" .}}
+        <div id="page-wrapper" style="min-height: 635px;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">Create Admin</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Sign up admin</h3>
+                                </div>
+                                <div class="panel-body">
+                                    {{if .Message }}
+                                    <div class="alert alert-danger">{{.Message}}</div>
+                                    {{end}}
+                                    <form role="form" action="/admin/save/{{.Token}}" method="POST" id="adminForm">
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <input class="form-control" placeholder="First Name" id="firstname" name="firstname" type="text" minlength="4" minlength="12"  autofocus required>
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="form-control" placeholder="Last Name" id="lastname" name="lastname" type="text" minlength="1" minlength="12"  required>
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="form-control" placeholder="Username" id="username" name="username" type="text" required minlength="5" minlength="8">
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="form-control" placeholder="Password" id="password" name="password" type="password" value="" required minlength="4" minlength="8">
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="form-control" placeholder="Confirm Password" id="confirmpassword" name="confirmpassword" type="password" value="" equalTo="password" minlength="4" minlength="8" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="form-control" placeholder="User Email" id="useremail" name="useremail"  required type="email" email>
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="form-control" placeholder="Mobile" id="mobile" name="mobile" type="text"  required  minlength="10" digits> 
+                                            </div>
+                                            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Save Admin"/>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+</div>
+<script>
+    $("#adminForm").validate();
+</script>
+{{end}}

@@ -1,0 +1,67 @@
+{{define "head"}}<title>Change Admin Settings</title>{{end}}
+{{define "body"}}
+<div id="wrapper">
+        {{template "nav" .}}
+        <div id="page-wrapper" style="min-height: 635px;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">Change Admin Settings</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            {{if .Message }}
+                            <div class="alert alert-danger">{{.Message}}</div>
+                            {{end}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Change  {{.EditAdminObj.FirstName}} {{.EditAdminObj.LastName}} Username</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <form role="form" action="/admin/changeusername/{{.Token}}/{{.EditAdminObj.Id.Hex}}" method="POST" id="adminChangeUsernameForm">
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <input class="form-control" placeholder="Username" id="username" name="username" type="text" value="{{.EditAdminObj.UserName}}" required minlength="5" minlength="8">
+                                            </div>
+                                            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Save"/>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Change  {{.EditAdminObj.FirstName}} {{.EditAdminObj.LastName}} Password</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <form role="form" action="/admin/changepassword/{{.Token}}/{{.EditAdminObj.Id.Hex}}" method="POST" id="adminChangePasswordForm">
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <input class="form-control" placeholder="Password" id="password" name="password" type="password" value="" required minlength="4" minlength="8">
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="form-control" placeholder="Confirm Password" id="confirmpassword" name="confirmpassword" type="password" value="" equalTo="#password" minlength="4" minlength="8" required>
+                                            </div>
+                                            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Save"/>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+</div>
+<script>
+    $("#adminChangeUsernameForm").validate();
+    $("#adminChangePasswordForm").validate();
+</script>
+{{end}}
