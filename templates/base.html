@@ -17,6 +17,12 @@
         <!-- MetisMenu CSS -->
         <link href="/css/metisMenu.min.css" rel="stylesheet">
 
+        <!-- DataTables CSS -->
+        <link href="/css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+
+        <!-- DataTables Responsive CSS -->
+        <link href="/css/dataTables/dataTables.responsive.css" rel="stylesheet">
+
         <!-- Custom CSS -->
         <link href="/css/startmin.css" rel="stylesheet">
 
@@ -29,10 +35,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-    {{template "head" .}}
-  </head>
-  <body>
-    {{template "body" .}}
     <!-- Optional JavaScript -->
     <!-- jQuery -->
     <script src="/js/jquery.min.js"></script>
@@ -43,7 +45,11 @@
     <!-- Custom Theme JavaScript -->
     <script src="/js/startmin.js"></script>
     <script src="/js/jquery.validate.min.js"></script>
-    <script src="/js/additional-methods.min.js"></script>    
+    <script src="/js/additional-methods.min.js"></script>  
+    {{template "head" .}}
+  </head>
+  <body>
+    {{template "body" .}}  
   </body>
 </html>
 {{end}}
